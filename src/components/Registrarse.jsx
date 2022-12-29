@@ -165,7 +165,7 @@ const registrarse = () => {
 
     try {
       setLoad(true);
-      const url = `${process.env.URL_BACKEND}/api/clientes/registrarse`;
+      const url = `${import.meta.env.URL_BACKEND}/api/clientes/registrarse`;
       const response = await axios.post(url, {
         nombre,
         apellido,

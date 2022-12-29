@@ -13,7 +13,7 @@ const ConfirmarCuenta = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const url = `${process.env.URL_BACKEND}/api/clientes/confirmar-cuenta/${token}`;
+        const url = `${import.meta.env.URL_BACKEND}/api/clientes/confirmar-cuenta/${token}`;
         const response = await axios.get(url);
         setExito(response.data.msg);
         setBolExito(true);
