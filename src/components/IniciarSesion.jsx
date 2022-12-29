@@ -102,7 +102,7 @@ const iniciarSesion = () => {
 
     try {
       setLoad(true);
-      const url = `${import.meta.env.URL_BACKEND}/api/clientes/`;
+      const url = `${import.meta.env.VITE_URL_BACKEND}/api/clientes/`;
       const {data} = await axios.post(url, {correo, password});
       setLoad(false);
       localStorage.setItem('token', data.token); //guardando token en localStorage

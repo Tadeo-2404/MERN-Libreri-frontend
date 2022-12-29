@@ -18,7 +18,7 @@ const ContextProviderLibros = ({children}) => {
 
         if(libro.id) {
             try {
-                const {data} = await axios.put(`${import.meta.env.URL_BACKEND}/api/libros/${libro.id}`, libro, configuration);
+                const {data} = await axios.put(`${import.meta.env.VITE_URL_BACKEND}/api/libros/${libro.id}`, libro, configuration);
                 const updated = libros.map(lib => lib._id === data._id ? data : lib)
                 setLibros(updated)
             } catch (error) {
@@ -26,7 +26,7 @@ const ContextProviderLibros = ({children}) => {
             }
         } else {
             try {
-                const {data} = await axios.post(`${import.meta.env.URL_BACKEND}/api/libros`, libro, configuration);
+                const {data} = await axios.post(`${import.meta.env.VITE_URL_BACKEND}/api/libros`, libro, configuration);
                 console.log(data);
                 const {__v, ...libroGuardado} = data;
                 setLibros((libros) => [...libros, libroGuardado]);
@@ -46,7 +46,7 @@ const ContextProviderLibros = ({children}) => {
                       Authorization: `Bearer ${token}` //usamos bearer token
                     }
                   }
-                const {data} = await axios.get(`${import.meta.env.URL_BACKEND}/api/libros`, configuration);
+                const {data} = await axios.get(`${import.meta.env.VITE_URL_BACKEND}/api/libros`, configuration);
                 setLibros([]);
                 setLibros(data);
     
@@ -73,7 +73,7 @@ const ContextProviderLibros = ({children}) => {
         const authDelete = confirm(`Deseas eliminar ${libro.titulo}?`);
         if(authDelete) {
             try {
-                const {data} = await axios.delete(`${import.meta.env.URL_BACKEND}/api/libros/${libro._id}`, configuration);
+                const {data} = await axios.delete(`${import.meta.env.VITE_URL_BACKEND}/api/libros/${libro._id}`, configuration);
                 const updated = libros.filter(lib => lib._id != libro._id)
                 setLibros(updated);
             } catch (error) {

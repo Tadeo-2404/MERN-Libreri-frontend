@@ -27,7 +27,7 @@ const nuevoPassword = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const url = `${import.meta.env.URL_BACKEND}/api/clientes/olvide-password/${token}`;
+        const url = `${import.meta.env.VITE_URL_BACKEND}/api/clientes/olvide-password/${token}`;
         const response = await axios.get(url);
         setExito(response.data.msg);
       } catch (e) {
@@ -125,7 +125,7 @@ const nuevoPassword = () => {
 
     try {
       setLoad(true);
-      const url = `${import.meta.env.URL_BACKEND}/api/clientes/olvide-password/${token}`;
+      const url = `${import.meta.env.VITE_URL_BACKEND}/api/clientes/olvide-password/${token}`;
       const response = await axios.post(url, { password });
       setLoad(false);
       setExito(response.data.msg);
