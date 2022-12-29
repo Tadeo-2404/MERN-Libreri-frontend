@@ -23,7 +23,7 @@ const ContextProvider = ({children}) => {
       }
       
       try {
-        const url = "http://localhost:4000/api/clientes/perfil"; //mandamos get para obtener perfil
+        const url = `${process.env.URL_BACKEND}/api/clientes/perfil`; //mandamos get para obtener perfil
         const {data} = await axios.get(url, configuration);
         setAuth(data);
       } catch (error) {
@@ -55,7 +55,7 @@ const ContextProvider = ({children}) => {
     }
 
     try {
-      const url = `http://localhost:4000/api/clientes/perfil/${profile._id}`; //mandamos get para obtener perfil
+      const url = `${process.env.URL_BACKEND}/api/clientes/perfil/${profile._id}`; //mandamos get para obtener perfil
       const {data} = await axios.put(url, profile ,configuration);
       console.log(data);
       return {
@@ -82,7 +82,7 @@ const ContextProvider = ({children}) => {
     }
 
     try {
-      const url = 'http://localhost:4000/api/clientes/cambiar-password'; //mandamos get para obtener perfil
+      const url = `${process.env.URL_BACKEND}/api/clientes/cambiar-password`; //mandamos get para obtener perfil
       const {data} = await axios.put(url, credentials ,configuration);
       console.log(data);
       return {

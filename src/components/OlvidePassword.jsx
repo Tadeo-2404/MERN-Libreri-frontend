@@ -37,7 +37,7 @@ const olvidePassword = () => {
 
     try {
       setLoad(true);
-      const url = "http://localhost:4000/api/clientes/olvide-password";
+      const url = `${process.env.URL_BACKEND}/api/clientes/olvide-password`;
       const response = await axios.post(url, {correo});
       setLoad(false);
       setExito(exito => [...exito, response.data.msg]);

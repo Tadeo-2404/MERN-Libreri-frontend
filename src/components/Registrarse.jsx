@@ -165,7 +165,7 @@ const registrarse = () => {
 
     try {
       setLoad(true);
-      const url = "http://localhost:4000/api/clientes/registrarse";
+      const url = `${process.env.URL_BACKEND}/api/clientes/registrarse`;
       const response = await axios.post(url, {
         nombre,
         apellido,
